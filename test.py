@@ -40,7 +40,7 @@ clock = pygame.time.Clock()
 t = np.linspace(0, 200, 10000)
 
 # Skalowanie i przesunięcie do wizualizacji
-scale = 110
+scale = 100
 shift_x1 = width // 4
 shift_x2 = 3 * width // 4
 shift_y = height // 10
@@ -55,17 +55,24 @@ drawn_points_x1 = []
 drawn_points_x2 = []
 
 while running:
+
+###################################################################
+    #### fizyka ####
+###################################################################
     omega_1 = np.sqrt(omega0 ** 2 + 2 * k3 / m1)
     omega_2 = omega0
 
     # Amplitudy i różnice faz (zakładając pewne warunki początkowe)
-    A1_1, A1_2 = 1.0, 0.5  # Amplitudy dla masy m1 w każdym trybie
-    A2_1, A2_2 = 1.0, -0.5  # Amplitudy dla masy m2 w każdym trybie
+    A1_1, A1_2 = 0.5, 0.5  # Amplitudy dla masy m1 w każdym trybie
+    A2_1, A2_2 = 0.5, -0.5  # Amplitudy dla masy m2 w każdym trybie
 
     # Przemieszczenia w funkcji czasu
     x1 = A1_1 * np.cos(omega_1 * t) + A1_2 * np.cos(omega_2 * t)
     x2 = A2_1 * np.cos(omega_1 * t) + A2_2 * np.cos(omega_2 * t)
 
+##############################################################################
+    #### mechanika animacji ####
+##############################################################################
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -122,3 +129,4 @@ while running:
     clock.tick(fps)
 
 pygame.quit()
+###############################################################################
