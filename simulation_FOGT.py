@@ -67,7 +67,7 @@ def draw():
     pygame.draw.rect(screen, (0, 255, 0), start_button)
     pygame.draw.rect(screen, (255, 0, 0), reset_button)
     screen.blit(font.render("Start", True, (0, 0, 0)), (start_button.x + 25, start_button.y + 5))
-    screen.blit(font.render("Reset", True, (0, 0, 0)), (reset_button.x + 20, reset_button.y + 5))
+    screen.blit(font.render("Stop", True, (0, 0, 0)), (reset_button.x + 20, reset_button.y + 5))
 
 
 i = 0
